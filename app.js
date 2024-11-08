@@ -83,7 +83,25 @@
 	    "Tiggo FL": {},
 	    "Tiggo T11": {},
 	    "Very A13": {}
-	}
+	},
+	chevrolet: {
+	    "Aveo": {},
+	    "Captiva": {},
+	    "Cobalt": {},
+	    "Cruze": {},
+	    "Epica": {},
+	    "Evanda": {},
+	    "Lacetti": {},
+	    "Lanos": {},
+	    "Malibu": {},
+	    "Orlando": {}
+	},
+	chrysler: {
+	    "PT Cruiser": {},
+	    "Sebring": {},
+	    "Voyager": {}
+	},
+	
     };
 
     const brandSelect = document.getElementById("brand");
