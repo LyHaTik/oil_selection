@@ -296,6 +296,73 @@ const carData = {
 	    "S3": {},
 	    "S5": {}
 	},
+	"Kamaz": {
+	    "С двигателями Cummins": {},
+	    "С двигателями Mercedes-Benz": {},
+	    "С двигателями КамАЗ-740 (Euro 0-5)": {}
+	},
+	"Kia": {
+	    "Carens": {},
+	    "Carnival": {},
+	    "Ceed": {},
+	    "Cerato": {},
+	    "Magentis": {},
+	    "Opirus": {},
+		"Optima": {},
+	    "Picanto": {},
+	    "Quoris": {},
+		"Rio": {},
+	    "Sephia": {},
+	    "Sorento": {},
+		"Soul": {},
+	    "Sportage": {},
+		"Venga": {}
+	},
+	"Lexus": {
+	    "CT 200h": {},
+	    "ES": {},
+	    "GS": {},
+	    "GX": {},
+	    "IS": {},
+	    "LS": {},
+		"LX": {},
+	    "NX": {},
+	    "RX": {},
+		"SC": {}
+	},
+	"Lifan": {
+	    "Breez": {},
+	    "Cebrium": {},
+	    "Celliya": {},
+	    "Murman": {},
+	    "Myway": {},
+	    "Smily": {},
+		"Solano": {},
+	    "X50": {},
+	    "X60": {},
+		"X70": {}
+	},
+	"MAN": {
+	    "F2000": {},
+	    "LE": {},
+	    "TGA": {},
+	    "TGL": {},
+	    "TGM": {},
+	    "TGS": {},
+		"TGX": {}
+	},
+	"Mazda": {
+	    "Mazda 2": {},
+		"Mazda 3": {},
+	    "Mazda 5": {},
+	    "Mazda 6": {},
+	    "323": {},
+	    "CX-5": {},
+	    "CX-7": {},
+		"CX-9": {},
+		"MPV": {},
+	    "Tribute": {}
+	},
 };
 
 const brandSelect = document.getElementById('brand');
