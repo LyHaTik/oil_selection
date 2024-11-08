@@ -42,14 +42,14 @@ const carData = {
 	    "F3": {},
 	    "Flyer": {}
 	},
-	cadillac: {
+	"Cadillac": {
 	    "ATS": {},
 	    "BLS": {},
 	    "CTS": {},
 	    "Escalade": {},
 	    "SRX": {}
 	},
-	chery: {
+	"Chery": {
 	    "Amulet": {},
 	    "Arrizo": {},
 	    "Bonus": {},
@@ -75,7 +75,7 @@ const carData = {
 	    "Tiggo T11": {},
 	    "Very A13": {}
 	},
-	chevrolet: {
+	"Chevrolet": {
 	    "Aveo": {},
 	    "Captiva": {},
 	    "Cobalt": {},
@@ -87,12 +87,12 @@ const carData = {
 	    "Malibu": {},
 	    "Orlando": {}
 	},
-	chrysler: {
+	"Chrysler": {
 	    "PT Cruiser": {},
 	    "Sebring": {},
 	    "Voyager": {}
 	},
-	citroen: {
+	"Citroen": {
 	    "C-Crosser": {},
 	    "C-Elysee": {},
 	    "C1": {},
@@ -110,7 +110,7 @@ const carData = {
 	    "DS5": {},
 	    "Xsara Picasso": {}
 	},
-	daewoo: {
+	"Daewoo": {
 	    "Gentra": {},
 	    "Lanos": {},
 	    "Leganza": {},
@@ -118,7 +118,7 @@ const carData = {
 	    "Nexia": {},
 	    "Winstorm": {}
 	},
-	daf: {
+	"Daf": {
 	    "CF65": {},
 	    "CF75": {},
 	    "CF85": {},
@@ -130,16 +130,16 @@ const carData = {
 	    "XF105": {},
 	    "XF106": {}
 	},
-	datsun: {
+	"Datsun": {
 	    "mi-DO": {},
 	    "on-DO": {}
 	},
-	exeed: {
+	"Exeed": {
 	    "LX": {},
 	    "TXL": {},
 	    "VX": {}
 	},
-	faw: {
+	"Faw": {
 	    "Besturn B50": {},
 	    "Oley": {},
 	    "V2": {},
@@ -148,12 +148,12 @@ const carData = {
 	    "X40": {},
 	    "X80": {}
 	},
-	fiat: {
+	"Fiat": {
 	    "Albea": {},
 	    "Doblo/Doblo Cargo": {},
 	    "Grande Punto": {}
 	},
-	ford: {
+	"Ford": {
 	    "B-Max": {},
 	    "C-Max": {},
 	    "EcoSport": {},
@@ -164,6 +164,137 @@ const carData = {
 	    "Fusion": {},
 	    "Galaxy": {},
 	    "Kuga": {}
+	},
+	"Foton": {
+	    "Auman": {},
+	    "Aumark": {},
+	    "Ollin": {}
+	},
+	"Geely": {
+	    "Atlas": {},
+	    "Atlas Pro": {},
+	    "Coolray": {},
+	    "Emgrand 7": {},
+	    "Emgrand EC7": {},
+	    "Emgrand X7": {},
+	    "GC6": {},
+	    "MK": {},
+	    "MK Cross": {},
+	    "Otaka CK": {},
+	    "Tugella": {},
+	    "Vision": {}
+	},
+	"Geely": {
+	    "Atlas": {},
+	    "Atlas Pro": {},
+	    "Coolray": {},
+	    "Emgrand 7": {},
+	    "Emgrand EC7": {},
+	    "Emgrand X7": {},
+	    "GC6": {},
+	    "MK": {},
+	    "MK Cross": {},
+	    "Otaka CK": {},
+	    "Tugella": {},
+	    "Vision": {}
+	},
+	"Great Wall": {
+	    "C10": {},
+	    "C20R": {},
+	    "Coolbear MPV/CB150 MPV": {},
+	    "Cross/Florid/Florid Cross": {},
+	    "Deer": {},
+	    "H2": {},
+	    "H3": {},
+	    "H5": {},
+	    "Hover H6": {},
+	    "Hover M2": {},
+	    "Hover M4": {},
+	    "Peri": {},
+	    "Poer": {},
+	    "Safe": {},
+	    "Sailor": {},
+	    "Voleex C30": {},
+	    "Wingle/Steed": {}
+	},
+	"HAVAL": {
+	    "Dargo": {},
+	    "F7/F7x": {},
+	    "H2": {},
+	    "H6": {},
+	    "H9": {},
+	    "Jolion": {}
+	},
+	"HINO": {
+	    "HINO 300": {},
+	    "HINO 500": {}
+	},
+	"Honda": {
+	    "Accord": {},
+	    "C-RV": {},
+	    "Civic": {},
+	    "Crosstour": {},
+	    "Element": {},
+	    "FR-V": {},
+	    "HR-V": {},
+	    "Insight": {},
+	    "Jazz": {},
+	    "Legend": {},
+	    "Pilot": {},
+	    "Ridgeline": {},
+	    "Stepwagon": {},
+	    "Stream": {}
+	},
+	"Hyundai": {
+	    "Accent": {},
+	    "Coupe": {},
+	    "Creta": {},
+	    "Elantra": {},
+	    "Equus": {},
+	    "Genesis": {},
+	    "Getz": {},
+	    "Grand Santa Fe": {},
+		"Grandeur": {},
+	    "i10": {},
+	    "i20": {},
+	    "i30": {},
+	    "i40": {},
+	    "ix35": {},
+	    "ix55": {},
+	    "Matrix": {},
+		"Santa Fe": {},
+	    "Solaris": {},
+	    "Sonata": {},
+	    "Terracan": {},
+	    "Trajet": {},
+	    "Tucson": {},
+	    "Veloster": {},
+	},
+	"Hyundai Truck": {
+	    "HD-120": {},
+	    "HD-170": {},
+	    "HD-250": {},
+	    "HD-65": {},
+	    "HD-72": {},
+	    "HD-78 ": {},
+	    "Porter": {}
+	},
+	"IVECO": {
+	    "Daily 3": {},
+	    "Daily 4": {},
+	    "EuroCargo 1": {},
+	    "EuroCargo 2": {},
+	    "EuroCargo 3": {},
+	    "EuroCargo 4": {},
+	    "Eurotech MH/MP/MT": {},
+		"EuroTrakker": {},
+	    "Stralis Hi-Street/Hi-Road/Hi-Way": {},
+	    "Trakker": {}
+	},
+	"JAC": {
+	    "J7": {},
+	    "S3": {},
+	    "S5": {}
 	},
 };
 
