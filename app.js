@@ -33,7 +33,20 @@
 	    "Q7": {},
 	    "TT": {}
         },
-        bmw: {}
+        bmw: {
+	    "1 Series": {},
+	    "2 Series": {},
+	    "3 Series": {},
+	    "4 Series": {},
+	    "5 Series": {},
+	    "6 Series": {},
+	    "7 Series": {},
+	    "X1": {},
+	    "X3": {},
+	    "X4": {},
+	    "X5": {},
+	    "X6": {}
+	}
     };
 
     const brandSelect = document.getElementById("brand");
