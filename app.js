@@ -178,9 +178,6 @@
     const modelSelect = document.getElementById("model");
     const generationSelect = document.getElementById("generation");
     const modificationSelect = document.getElementById("modification");
-    const engineSelect = document.getElementById("engine");
-    const powerSelect = document.getElementById("power");
-    const fuelSelect = document.getElementById("fuel");
 
     // Функция для заполнения выпадающего списка
     function populateSelect(select, options) {
@@ -200,9 +197,6 @@
         modelSelect.disabled = true;
         generationSelect.disabled = true;
         modificationSelect.disabled = true;
-        engineSelect.disabled = true;
-        powerSelect.disabled = true;
-        fuelSelect.disabled = true;
 
         if (selectedBrand && carData[selectedBrand]) {
             populateSelect(modelSelect, Object.keys(carData[selectedBrand]));
@@ -216,9 +210,6 @@
 
         generationSelect.disabled = true;
         modificationSelect.disabled = true;
-        engineSelect.disabled = true;
-        powerSelect.disabled = true;
-        fuelSelect.disabled = true;
 
         if (selectedModel && carData[selectedBrand][selectedModel]) {
             populateSelect(generationSelect, Object.keys(carData[selectedBrand][selectedModel]));
@@ -232,9 +223,6 @@
         const selectedGeneration = generationSelect.value;
 
         modificationSelect.disabled = true;
-        engineSelect.disabled = true;
-        powerSelect.disabled = true;
-        fuelSelect.disabled = true;
 
         if (selectedGeneration && carData[selectedBrand][selectedModel][selectedGeneration]) {
             populateSelect(modificationSelect, Object.keys(carData[selectedBrand][selectedModel][selectedGeneration]));
@@ -248,38 +236,7 @@
         const selectedGeneration = generationSelect.value;
         const selectedModification = modificationSelect.value;
 
-        engineSelect.disabled = true;
-        powerSelect.disabled = true;
-        fuelSelect.disabled = true;
-
         if (selectedModification && carData[selectedBrand][selectedModel][selectedGeneration][selectedModification]) {
             const data = carData[selectedBrand][selectedModel][selectedGeneration][selectedModification];
-            populateSelect(engineSelect, data.engine);
-        }
-    });
-
-    // Обработчик выбора объема двигателя
-    engineSelect.addEventListener("change", () => {
-        const selectedBrand = brandSelect.value;
-        const selectedModel = modelSelect.value;
-        const selectedGeneration = generationSelect.value;
-        const selectedModification = modificationSelect.value;
-        const engineData = carData[selectedBrand][selectedModel][selectedGeneration][selectedModification];
-
-        if (engineData) {
-            populateSelect(powerSelect, engineData.power);
-        }
-    });
-
-    // Обработчик выбора мощности
-    powerSelect.addEventListener("change", () => {
-        const selectedBrand = brandSelect.value;
-        const selectedModel = modelSelect.value;
-        const selectedGeneration = generationSelect.value;
-        const selectedModification = modificationSelect.value;
-        const powerData = carData[selectedBrand][selectedModel][selectedGeneration][selectedModification];
-
-        if (powerData) {
-            populateSelect(fuelSelect, powerData.fuel);
         }
     });
