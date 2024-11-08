@@ -269,12 +269,11 @@ function sendDataToBot() {
 }
 
 // Обработчики событий
-brandSelect.addEventListener('change', () => populateModels(brandSelect.value));
-modelSelect.addEventListener('change', () => populateGenerations(brandSelect.value, modelSelect.value));
-generationSelect.addEventListener('change', () => populateModifications(brandSelect.value, modelSelect.value, generationSelect.value));
+brandSelect.addEventListener('change', populateModels);
+modelSelect.addEventListener('change', populateGenerations);
+generationSelect.addEventListener('change', populateModifications);
 submitButton.addEventListener('click', sendDataToBot);
 
 // Инициализация
 Telegram.WebApp.ready();
 populateBrands();
-    
