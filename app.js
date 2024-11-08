@@ -2,15 +2,9 @@
     const carData = {
 	acura: {
             "MDX": {
-                "1 поколение, вкл.рестайлинг (YD1) 2000-2006": {
-                    "3.5 4WD (J35A3/J35A5)": {}
-                },
-		"2 поколение, вкл.рестайлинг (YD2) 2006-2013": {
-                    "3.7 AWD (J37A1)": {}
-                },
-		"3 поколение, вкл.рестайлинг (YD3) 2013-2021": {
-                    "3.5 SH-awd (J35Y4/J35Y5)": {}
-                },
+                "1 поколение, вкл.рестайлинг (YD1) 2000-2006": ["3.5 4WD (J35A3/J35A5)"]
+		"2 поколение, вкл.рестайлинг (YD2) 2006-2013": ["3.7 AWD (J37A1)"]
+		"3 поколение, вкл.рестайлинг (YD3) 2013-2021": ["3.5 SH-awd (J35Y4/J35Y5)"]
             },
 	    "RDX": {},
 	    "TLX": {},
@@ -174,69 +168,98 @@
 	
     };
 
-    const brandSelect = document.getElementById("brand");
-    const modelSelect = document.getElementById("model");
-    const generationSelect = document.getElementById("generation");
-    const modificationSelect = document.getElementById("modification");
+const brandSelect = document.getElementById('brand');
+const modelSelect = document.getElementById('model');
+const generationSelect = document.getElementById('generation');
+const modificationSelect = document.getElementById('modification');
+const submitButton = document.getElementById('submit');
 
-    // Функция для заполнения выпадающего списка
-    function populateSelect(select, options) {
-        select.innerHTML = '<option value="">Выберите...</option>';
-        options.forEach(option => {
-            const opt = document.createElement("option");
-            opt.value = option;
-            opt.text = option;
-            select.appendChild(opt);
-        });
-        select.disabled = false;
+// Заполняем марки
+function populateBrands() {
+    brandSelect.innerHTML = '<option value="">Выберите марку</option>';
+    Object.keys(carData).forEach(brand => {
+        const option = document.createElement('option');
+        option.value = brand;
+        option.textContent = brand;
+        brandSelect.appendChild(option);
+    });
+}
+
+// Заполняем модели
+function populateModels(brand) {
+    modelSelect.innerHTML = '<option value="">Выберите модель</option>';
+    generationSelect.innerHTML = '<option value="">Выберите поколение</option>';
+    modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
+    if (!brand) return;
+
+    const models = Object.keys(carData[brand]);
+    models.forEach(model => {
+        const option = document.createElement('option');
+        option.value = model;
+        option.textContent = model;
+        modelSelect.appendChild(option);
+    });
+}
+
+// Заполняем поколения
+function populateGenerations(brand, model) {
+    generationSelect.innerHTML = '<option value="">Выберите поколение</option>';
+    modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
+    if (!brand || !model) return;
+
+    const generations = Object.keys(carData[brand][model]);
+    generations.forEach(gen => {
+        const option = document.createElement('option');
+        option.value = gen;
+        option.textContent = gen;
+        generationSelect.appendChild(option);
+    });
+}
+
+// Заполняем модификации
+function populateModifications(brand, model, generation) {
+    modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
+    if (!brand || !model || !generation) return;
+
+    const modifications = carData[brand][model][generation];
+    modifications.forEach(mod => {
+        const option = document.createElement('option');
+        option.value = mod;
+        option.textContent = mod;
+        modificationSelect.appendChild(option);
+    });
+}
+
+// Отправляем данные в Telegram
+function sendDataToBot() {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const generation = generationSelect.value;
+    const modification = modificationSelect.value;
+
+    if (!brand || !model || !generation || !modification) {
+        alert("Пожалуйста, выберите все поля.");
+        return;
     }
 
-    // Обработчик выбора марки
-    brandSelect.addEventListener("change", () => {
-        const selectedBrand = brandSelect.value;
-        modelSelect.disabled = true;
-        generationSelect.disabled = true;
-        modificationSelect.disabled = true;
+    const selectedData = {
+        brand,
+        model,
+        generation,
+        modification,
+    };
 
-        if (selectedBrand && carData[selectedBrand]) {
-            populateSelect(modelSelect, Object.keys(carData[selectedBrand]));
-        }
-    });
+    // Отправляем данные боту
+    Telegram.WebApp.sendData(JSON.stringify(selectedData));
+}
 
-    // Обработчик выбора модели
-    modelSelect.addEventListener("change", () => {
-        const selectedBrand = brandSelect.value;
-        const selectedModel = modelSelect.value;
+// Обработчики событий
+brandSelect.addEventListener('change', () => populateModels(brandSelect.value));
+modelSelect.addEventListener('change', () => populateGenerations(brandSelect.value, modelSelect.value));
+generationSelect.addEventListener('change', () => populateModifications(brandSelect.value, modelSelect.value, generationSelect.value));
+submitButton.addEventListener('click', sendDataToBot);
 
-        generationSelect.disabled = true;
-        modificationSelect.disabled = true;
-
-        if (selectedModel && carData[selectedBrand][selectedModel]) {
-            populateSelect(generationSelect, Object.keys(carData[selectedBrand][selectedModel]));
-        }
-    });
-
-    // Обработчик выбора поколения
-    generationSelect.addEventListener("change", () => {
-        const selectedBrand = brandSelect.value;
-        const selectedModel = modelSelect.value;
-        const selectedGeneration = generationSelect.value;
-
-        modificationSelect.disabled = true;
-
-        if (selectedGeneration && carData[selectedBrand][selectedModel][selectedGeneration]) {
-            populateSelect(modificationSelect, Object.keys(carData[selectedBrand][selectedModel][selectedGeneration]));
-        }
-    });
-
-    // Обработчик выбора модификации
-    modificationSelect.addEventListener("change", () => {
-        const selectedBrand = brandSelect.value;
-        const selectedModel = modelSelect.value;
-        const selectedGeneration = generationSelect.value;
-        const selectedModification = modificationSelect.value;
-
-        if (selectedModification && carData[selectedBrand][selectedModel][selectedGeneration][selectedModification]) {
-            const data = carData[selectedBrand][selectedModel][selectedGeneration][selectedModification];
-        }
-    });
+// Инициализация
+Telegram.WebApp.ready();
+populateBrands();
+    
