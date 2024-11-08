@@ -24,7 +24,7 @@ const carData = {
 	    "Q7": {},
 	    "TT": {}
         },
-        bmw: {
+        "BMW": {
 	    "1 Series": {},
 	    "2 Series": {},
 	    "3 Series": {},
