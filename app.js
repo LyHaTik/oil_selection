@@ -194,7 +194,7 @@ function checkSelection(field, message) {
 }
 
 // Заполняем модели
-function populateModels(brand) {
+function populateModels() {
     if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
 
     const brand = brandSelect.value;
@@ -212,7 +212,7 @@ function populateModels(brand) {
 }
 
 // Заполняем поколения
-function populateGenerations(brand, model) {
+function populateGenerations() {
     if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
     if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
 
@@ -231,7 +231,7 @@ function populateGenerations(brand, model) {
 }
 
 // Заполняем модификации
-function populateModifications(brand, model, generation) {
+function populateModifications() {
     if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
     if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
     if (!checkSelection(generationSelect, "Сначала выберите поколение автомобиля")) return;
@@ -252,21 +252,16 @@ function populateModifications(brand, model, generation) {
 
 // Отправляем данные в Telegram
 function sendDataToBot() {
-    const brand = brandSelect.value;
-    const model = modelSelect.value;
-    const generation = generationSelect.value;
-    const modification = modificationSelect.value;
-
-    if (!brand || !model || !generation || !modification) {
-        alert("Пожалуйста, выберите все поля.");
-        return;
-    }
+    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
+    if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
+    if (!checkSelection(generationSelect, "Сначала выберите поколение автомобиля")) return;
+    if (!checkSelection(modificationSelect, "Сначала выберите модификацию автомобиля")) return;
 
     const selectedData = {
-        brand,
-        model,
-        generation,
-        modification,
+        brand: brandSelect.value,
+        model: modelSelect.value,
+        generation: generationSelect.value,
+        modification: modificationSelect.value,
     };
 
     // Отправляем данные боту
