@@ -184,12 +184,23 @@ function populateBrands() {
     });
 }
 
+// Проверка выбора
+function checkSelection(field, message) {
+    if (!field.value) {
+        alert(message);
+        return false;
+    }
+    return true;
+}
+
 // Заполняем модели
 function populateModels(brand) {
+    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
+
+    const brand = brandSelect.value;
     modelSelect.innerHTML = '<option value="">Выберите модель</option>';
     generationSelect.innerHTML = '<option value="">Выберите поколение</option>';
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
-    if (!brand) return;
 
     const models = Object.keys(carData[brand]);
     models.forEach(model => {
@@ -202,9 +213,13 @@ function populateModels(brand) {
 
 // Заполняем поколения
 function populateGenerations(brand, model) {
+    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
+    if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
+
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
     generationSelect.innerHTML = '<option value="">Выберите поколение</option>';
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
-    if (!brand || !model) return;
 
     const generations = Object.keys(carData[brand][model]);
     generations.forEach(gen => {
@@ -217,8 +232,14 @@ function populateGenerations(brand, model) {
 
 // Заполняем модификации
 function populateModifications(brand, model, generation) {
+    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
+    if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
+    if (!checkSelection(generationSelect, "Сначала выберите поколение автомобиля")) return;
+
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const generation = generationSelect.value;
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
-    if (!brand || !model || !generation) return;
 
     const modifications = carData[brand][model][generation];
     modifications.forEach(mod => {
