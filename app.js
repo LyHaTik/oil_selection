@@ -57,6 +57,32 @@
 	    "CTS": {},
 	    "Escalade": {},
 	    "SRX": {}
+	},
+	chery: {
+	    "Amulet": {},
+	    "Arrizo": {},
+	    "Bonus": {},
+	    "CrossEastar B14": {},
+	    "Fora": {},
+	    "indiS S18D": {},
+	    "Kimo A1": {},
+	    "M11 (A3)": {},
+	    "QQ6 (S21)": {},
+	    "Sweet QQ": {},
+	    "Tiggo 2 ": {},
+	    "Tiggo 3": {},
+	    "Tiggo 4": {},
+	    "Tiggo 4 Pro": {},
+	    "Tiggo 5": {},
+	    "Tiggo 7": {},
+	    "Tiggo 7 Pro": {},
+	    "Tiggo 7 Pro Max": {},
+	    "Tiggo 8": {},
+	    "Tiggo 8 Pro": {},
+	    "Tiggo 8 Pro Max": {},
+	    "Tiggo FL": {},
+	    "Tiggo T11": {},
+	    "Very A13": {}
 	}
     };
 
