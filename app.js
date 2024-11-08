@@ -148,6 +148,32 @@
 	    "TXL": {},
 	    "VX": {}
 	},
+	faw: {
+	    "Besturn B50": {},
+	    "Oley": {},
+	    "V2": {},
+	    "V5": {},
+	    "Vita": {},
+	    "X40": {},
+	    "X80": {}
+	},
+	fiat: {
+	    "Albea": {},
+	    "Doblo/Doblo Cargo": {},
+	    "Grande Punto": {}
+	},
+	ford: {
+	    "B-Max": {},
+	    "C-Max": {},
+	    "EcoSport": {},
+	    "Edge": {},
+	    "Escape": {},
+	    "Fiesta": {},
+	    "Focus": {},
+	    "Fusion": {},
+	    "Galaxy": {},
+	    "Kuga": {}
+	},
 	
     };
 
