@@ -173,6 +173,13 @@ const generationSelect = document.getElementById('generation');
 const modificationSelect = document.getElementById('modification');
 const submitButton = document.getElementById('submit');
 
+// Инициализация выбора
+function initializeSelects() {
+    modelSelect.disabled = true;
+    generationSelect.disabled = true;
+    modificationSelect.disabled = true;
+}
+
 // Заполняем марки
 function populateBrands() {
     brandSelect.innerHTML = '<option value="">Выберите марку</option>';
@@ -184,23 +191,17 @@ function populateBrands() {
     });
 }
 
-// Проверка выбора
-function checkSelection(field, message) {
-    if (!field.value) {
-        alert(message);
-        return false;
-    }
-    return true;
-}
-
 // Заполняем модели
 function populateModels() {
-    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
-
     const brand = brandSelect.value;
+    if (!brand) return;
+
     modelSelect.innerHTML = '<option value="">Выберите модель</option>';
     generationSelect.innerHTML = '<option value="">Выберите поколение</option>';
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
+    modelSelect.disabled = false;
+    generationSelect.disabled = true;
+    modificationSelect.disabled = true;
 
     const models = Object.keys(carData[brand]);
     models.forEach(model => {
@@ -213,13 +214,14 @@ function populateModels() {
 
 // Заполняем поколения
 function populateGenerations() {
-    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
-    if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
-
     const brand = brandSelect.value;
     const model = modelSelect.value;
+    if (!model) return;
+
     generationSelect.innerHTML = '<option value="">Выберите поколение</option>';
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
+    generationSelect.disabled = false;
+    modificationSelect.disabled = true;
 
     const generations = Object.keys(carData[brand][model]);
     generations.forEach(gen => {
@@ -232,14 +234,13 @@ function populateGenerations() {
 
 // Заполняем модификации
 function populateModifications() {
-    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
-    if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
-    if (!checkSelection(generationSelect, "Сначала выберите поколение автомобиля")) return;
-
     const brand = brandSelect.value;
     const model = modelSelect.value;
     const generation = generationSelect.value;
+    if (!generation) return;
+
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
+    modificationSelect.disabled = false;
 
     const modifications = carData[brand][model][generation];
     modifications.forEach(mod => {
@@ -252,16 +253,21 @@ function populateModifications() {
 
 // Отправляем данные в Telegram
 function sendDataToBot() {
-    if (!checkSelection(brandSelect, "Сначала выберите марку автомобиля")) return;
-    if (!checkSelection(modelSelect, "Сначала выберите модель автомобиля")) return;
-    if (!checkSelection(generationSelect, "Сначала выберите поколение автомобиля")) return;
-    if (!checkSelection(modificationSelect, "Сначала выберите модификацию автомобиля")) return;
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const generation = generationSelect.value;
+    const modification = modificationSelect.value;
+
+    if (!brand || !model || !generation || !modification) {
+        alert("выберите все поля");
+        return;
+    }
 
     const selectedData = {
-        brand: brandSelect.value,
-        model: modelSelect.value,
-        generation: generationSelect.value,
-        modification: modificationSelect.value,
+        brand,
+        model,
+        generation,
+        modification,
     };
 
     // Отправляем данные боту
@@ -276,4 +282,5 @@ submitButton.addEventListener('click', sendDataToBot);
 
 // Инициализация
 Telegram.WebApp.ready();
+initializeSelects();
 populateBrands();
