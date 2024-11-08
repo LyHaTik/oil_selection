@@ -178,6 +178,7 @@ function initializeSelects() {
     modelSelect.disabled = true;
     generationSelect.disabled = true;
     modificationSelect.disabled = true;
+    submitButton.style.display = 'none'; // Скрываем кнопку
 }
 
 // Заполняем марки
@@ -202,6 +203,7 @@ function populateModels() {
     modelSelect.disabled = false;
     generationSelect.disabled = true;
     modificationSelect.disabled = true;
+    submitButton.style.display = 'none'; // Скрываем кнопку
 
     const models = Object.keys(carData[brand]);
     models.forEach(model => {
@@ -222,6 +224,7 @@ function populateGenerations() {
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
     generationSelect.disabled = false;
     modificationSelect.disabled = true;
+    submitButton.style.display = 'none'; // Скрываем кнопку
 
     const generations = Object.keys(carData[brand][model]);
     generations.forEach(gen => {
@@ -241,6 +244,7 @@ function populateModifications() {
 
     modificationSelect.innerHTML = '<option value="">Выберите модификацию</option>';
     modificationSelect.disabled = false;
+    submitButton.style.display = 'none'; // Скрываем кнопку
 
     const modifications = carData[brand][model][generation];
     modifications.forEach(mod => {
@@ -249,6 +253,21 @@ function populateModifications() {
         option.textContent = mod;
         modificationSelect.appendChild(option);
     });
+}
+
+// Проверяем выбор всех полей
+function checkAllFieldsSelected() {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const generation = generationSelect.value;
+    const modification = modificationSelect.value;
+
+    // Если все поля выбраны, показываем кнопку
+    if (brand && model && generation && modification) {
+        submitButton.style.display = 'block';
+    } else {
+        submitButton.style.display = 'none';
+    }
 }
 
 // Отправляем данные в Telegram
@@ -275,9 +294,19 @@ function sendDataToBot() {
 }
 
 // Обработчики событий
-brandSelect.addEventListener('change', populateModels);
-modelSelect.addEventListener('change', populateGenerations);
-generationSelect.addEventListener('change', populateModifications);
+brandSelect.addEventListener('change', () => {
+    populateModels();
+    checkAllFieldsSelected();
+});
+modelSelect.addEventListener('change', () => {
+    populateGenerations();
+    checkAllFieldsSelected();
+});
+generationSelect.addEventListener('change', () => {
+    populateModifications();
+    checkAllFieldsSelected();
+});
+modificationSelect.addEventListener('change', checkAllFieldsSelected);
 submitButton.addEventListener('click', sendDataToBot);
 
 // Инициализация
