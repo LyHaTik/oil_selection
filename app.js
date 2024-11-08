@@ -119,6 +119,14 @@
 	    "Xsara Picasso": {},
 	    "C2": {}
 	},
+	daewoo: {
+	    "Gentra": {},
+	    "Lanos": {},
+	    "Leganza": {},
+	    "Matiz": {},
+	    "Nexia": {},
+	    "Winstorm": {}
+	},
 	
     };
 
