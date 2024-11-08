@@ -101,6 +101,24 @@
 	    "Sebring": {},
 	    "Voyager": {}
 	},
+	citroen: {
+	    "C-Crosser": {},
+	    "C-Elysee": {},
+	    "C1": {},
+	    "C3": {},
+	    "C3 Picasso": {},
+	    "C4": {},
+	    "C4 Aircross": {},
+	    "C4 Picasso": {},
+	    "C5": {},
+	    "C6": {},
+	    "C8": {},
+	    "DS3": {},
+	    "DS4": {},
+	    "DS5": {},
+	    "Xsara Picasso": {},
+	    "C2": {}
+	},
 	
     };
 
