@@ -1,5 +1,5 @@
 // Данные автомобилей
-    const carData = {
+const carData = {
 	acura: {
             "MDX": {
                 "1 поколение, вкл.рестайлинг (YD1) 2000-2006": ["3.5 4WD (J35A3/J35A5)"]
@@ -165,8 +165,7 @@
 	    "Galaxy": {},
 	    "Kuga": {}
 	},
-	
-    };
+};
 
 const brandSelect = document.getElementById('brand');
 const modelSelect = document.getElementById('model');
