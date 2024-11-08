@@ -38,7 +38,7 @@ const carData = {
 	    "X5": {},
 	    "X6": {}
 	},
-	byd: {
+	"BYD": {
 	    "F3": {},
 	    "Flyer": {}
 	},
